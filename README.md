@@ -12,7 +12,6 @@
   - [Install](#install)
   - [Database](#database)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐ Show your support](#support)
