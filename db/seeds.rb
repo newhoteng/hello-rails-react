@@ -3,5 +3,5 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+  messages = Message.create([{ text: "Hello React" }, { text: "Hello Rails" }, { text: "Hello Rails-React" }, { text: "Hello Microverse" }, { text: "Hello Module 6" }])
 #   Character.create(name: "Luke", movie: movies.first)
