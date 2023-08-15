@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = 'http://127.0.0.1:3000/api/messages';
+const Url = 'http://127.0.0.1:3000/api/messages';
 
 const initialState = {
   message: {},
@@ -11,9 +11,8 @@ const initialState = {
 
 export const getMessageItems = createAsyncThunk('messages/getMessageItems', async (name, thunkAPI) => {
   try {
-    const resp = await axios(`${baseUrl}`);
+    const resp = await axios(`${Url}`);
     const { data } = resp;
-    console.log(data)
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong');
