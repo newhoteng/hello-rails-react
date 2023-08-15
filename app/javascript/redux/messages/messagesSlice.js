@@ -1,36 +1,47 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost/api/messages';
+const baseUrl = 'http://127.0.0.1:3000/api/messages';
 
 const initialState = {
-  message: [],
+  message: {},
   isLoading: false,
   error: undefined,
 };
 
+export const getMessageItems = createAsyncThunk('messages/getMessageItems', async (name, thunkAPI) => {
+  try {
+    const resp = await axios(`${baseUrl}`);
+    const { data } = resp;
+    console.log(data)
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue('something went wrong');
+  }
+});
+
 
 const messagesSlice = createSlice({
-  name: 'message',
+  name: 'messages',
   initialState,
   reducers: {
     addMessage: (state, action) => {
-      state.message.push(action.payload);
+      state.message = action.payload;
     },
   },
   extraReducers: (builder) => {
-    // getbookItems
-    // builder.addCase(getBookItems.pending, (state) => {
-    //   state.isLoading = true;
-    // });
-    // builder.addCase(getBookItems.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.books = action.payload;
-    // });
-    // builder.addCase(getBookItems.rejected, (state, action) => {
-    //   state.error = action.payload;
-    //   state.isLoading = false;
-    // });
+    // getmessageItems
+    builder.addCase(getMessageItems.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getMessageItems.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.message = action.payload;
+    });
+    builder.addCase(getMessageItems.rejected, (state, action) => {
+      state.error = action.payload;
+      state.isLoading = false;
+    });
   },
 });
 

@@ -16,10 +16,4 @@ function App() {
   )
 }
 
-// const App = () => (
-//   <div className="wrapper">
-//     <h1>This is working</h1>
-//   </div>
-// );
-
 export default App;
