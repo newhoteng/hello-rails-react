@@ -125,3 +125,17 @@ If you like this project give it a star.
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+Set up a "Hello world" project as one app with Webpack
+
+In this milestone I:
+
+Created a new Rails app called 'hello-rails-react' that uses React for Frontend and Postgres for the database
+Created a table for storing your messages and created 5 different greetings
+Created an API endpoint that selects a random greeting from your table
+Created a static view as the root of your app
+Created an App component with react-router and render it in the static view
+Created a Greeting component that will display a greeting and set it up as a route in the App component
+Created a store, an action, and a reducer that connects to the API endpoint to get the random greeting
+Display the random greeting in the Greeting component
